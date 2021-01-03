@@ -6,8 +6,22 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { loadCities, saveCities } from './common/functions';
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+const initialState = {
+  cities: loadCities(),
+  error: false,
+};
+
+const store = createStore(
+  rootReducer,
+  initialState,
+  applyMiddleware(thunk)
+);
+
+store.subscribe(() => {
+  saveCities(store.getState().cities);
+});
 
 ReactDOM.render(
   <Provider store={store}>

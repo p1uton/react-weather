@@ -8,9 +8,9 @@ export const CitiesList = () => {
 
   const dispatch = useDispatch();
 
-  // const handleClick = id => {
-  //   dispatch(removeCityAction(id));
-  // };
+  const handleClick = id => {
+    dispatch(removeCityAction(id));
+  };
 
   return (
     <div className="list-group">
@@ -22,6 +22,12 @@ export const CitiesList = () => {
               className="list-group-item list-group-item-action"
               key={city.id}
             >
+              <span
+                style={{ 'float': 'right', 'cursor': 'pointer' }}
+                onClick={() => handleClick(city.id)}
+              >
+                &times;
+              </span>
               {city.name}, {city.country}
             </button>
         )

@@ -1,11 +1,6 @@
 import { ADD_CITY, HIDE_ERROR, REMOVE_CITY, SHOW_ERROR } from '../actions/types';
 
-const initialState = {
-  cities: [],
-  error: false,
-};
-
-export const rootReducer = (state = initialState, action) => {
+export const rootReducer = (state, action) => {
   switch (action.type) {
     case ADD_CITY:
       return {
