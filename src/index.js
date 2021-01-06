@@ -7,6 +7,7 @@ import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { loadCities, saveCities } from './common/functions';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 const initialState = {
   cities: loadCities(),
@@ -26,7 +27,9 @@ store.subscribe(() => {
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>
-      <App />
+      <Router>
+        <App />
+      </Router>
     </React.StrictMode>
   </Provider>,
   document.getElementById('root')

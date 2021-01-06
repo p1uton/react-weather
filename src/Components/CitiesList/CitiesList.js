@@ -1,35 +1,24 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { removeCityAction } from '../../actions/actions';
+import { useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 
 export const CitiesList = () => {
 
   const cities = useSelector(state => state.cities);
-
-  const dispatch = useDispatch();
-
-  const handleClick = id => {
-    dispatch(removeCityAction(id));
-  };
 
   return (
     <div className="list-group">
       {
         cities.map(
           city =>
-            <button
+            <NavLink
               type="button"
               className="list-group-item list-group-item-action"
               key={city.id}
+              to={`/${city.id}`}
             >
-              <span
-                style={{ 'float': 'right', 'cursor': 'pointer' }}
-                onClick={() => handleClick(city.id)}
-              >
-                &times;
-              </span>
               {city.name}, {city.country}
-            </button>
+            </NavLink>
         )
       }
     </div>

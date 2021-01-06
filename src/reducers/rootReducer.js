@@ -11,13 +11,15 @@ export const rootReducer = (state, action) => {
             id: action.payload.id,
             name: action.payload.name,
             country: action.payload.sys.country,
+            lat: action.payload.coord.lat,
+            lon: action.payload.coord.lon,
           }
         ],
       };
     case REMOVE_CITY:
       return {
         ...state,
-        cities: state.cities.filter(city => city.id !== action.payload),
+        cities: state.cities.filter(city => parseInt(city.id) !== parseInt(action.payload)),
       };
     case SHOW_ERROR:
       return {
