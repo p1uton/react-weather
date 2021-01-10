@@ -16,7 +16,7 @@ export const Day = ({ weather, offset }) => {
         </div>
         <div style={{ 'display': 'flex', 'alignItems': 'center' }}>
           <img
-            src={`http://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
+            src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}.png`}
             alt={weather.weather[0].main}
           />
           {weather.weather[0].main}
