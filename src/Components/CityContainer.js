@@ -11,8 +11,6 @@ export const CityContainer = () => {
 
   const [weather, setWeather] = useState(null);
 
-  // const [redirect, setRedirect] = useState(false);
-
   useEffect(() => {
     async function fetchWeather() {
       if (undefined !== city) {
@@ -28,24 +26,17 @@ export const CityContainer = () => {
   const handleRemoveClick = id => {
     dispatch(removeCityAction(id));
     dispatch(setCityAction(null));
-    // setRedirect(true);
   };
 
   const handleBackClick = () => {
     dispatch(setCityAction(null));
   };
 
-  // if (redirect) {
-  //   return (
-  //     <Redirect to={'/'} />
-  //   );
-  // }
-
   return (
     <div className="pt-3">
       <div style={{ 'display': 'flex', 'justifyContent': 'space-between', 'alignItems': 'center' }}>
         <button
-          class="btn btn-link"
+          className="btn btn-link"
           onClick={() => handleBackClick()}
         >
           &larr; Back

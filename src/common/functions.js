@@ -26,8 +26,14 @@ export const dtToDate = (dt, offset) => {
   return date.toLocaleDateString([], { weekday: 'short', day: 'numeric', month: 'short' });
 };
 
-export const getCity = async cityName => {
-  const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${process.env.REACT_APP_APPID}`);
+export const getCityByName = async name => {
+  const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${name}&appid=${process.env.REACT_APP_APPID}`);
+  const data = await response.json();
+  return data;
+}
+
+export const getCityByCoords = async (lat, lon) => {
+  const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${process.env.REACT_APP_APPID}`);
   const data = await response.json();
   return data;
 }
@@ -37,3 +43,4 @@ export const getWeather = async city => {
   const data = await response.json();
   return data;
 };
+

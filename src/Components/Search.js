@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addCityAsyncAction } from '../actions/actions';
+import { addCityByNameAction } from '../actions/actions';
 import { Error } from './Error';
 
 export const Search = () => {
@@ -12,7 +12,7 @@ export const Search = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
-    dispatch(addCityAsyncAction(cityName));
+    dispatch(addCityByNameAction(cityName));
     setCityName('');
   };
 
