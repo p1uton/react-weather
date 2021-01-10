@@ -1,4 +1,4 @@
-import { ADD_CITY, HIDE_ERROR, REMOVE_CITY, SHOW_ERROR } from '../actions/types';
+import { ADD_CITY, HIDE_ERROR, REMOVE_CITY, SET_CITY, SHOW_ERROR } from '../actions/types';
 
 export const rootReducer = (state, action) => {
   switch (action.type) {
@@ -30,6 +30,11 @@ export const rootReducer = (state, action) => {
       return {
         ...state,
         error: false,
+      };
+    case SET_CITY:
+      return {
+        ...state,
+        cityId: action.payload,
       };
     default:
       return state;

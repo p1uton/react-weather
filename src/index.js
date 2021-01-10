@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { App } from './Components/App/App';
+import { App } from './Components/App';
 import { rootReducer } from './reducers/rootReducer';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { loadCities, saveCities } from './common/functions';
-import { BrowserRouter as Router } from 'react-router-dom';
 
 const initialState = {
   cities: loadCities(),
   error: false,
+  cityId: null,
 };
 
 const store = createStore(
@@ -27,9 +27,7 @@ store.subscribe(() => {
 ReactDOM.render(
   <Provider store={store}>
     <React.StrictMode>
-      <Router>
-        <App />
-      </Router>
+      <App />
     </React.StrictMode>
   </Provider>,
   document.getElementById('root')

@@ -1,10 +1,10 @@
-import { ADD_CITY, HIDE_ERROR, REMOVE_CITY, SHOW_ERROR } from './types';
+import { getCity } from '../common/functions';
+import { ADD_CITY, HIDE_ERROR, REMOVE_CITY, SET_CITY, SHOW_ERROR } from './types';
 
 export const addCityAsyncAction = cityName => {
   return async dispatch => {
     try {
-      const response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${process.env.REACT_APP_APPID}`);
-      const city = await response.json();
+      const city = await getCity(cityName);
       if ('id' in city) {
         dispatch(addCityAction(city));
       } else {
@@ -39,5 +39,12 @@ export const showErrorAction = () => {
 export const hideErrorAction = () => {
   return {
     type: HIDE_ERROR,
+  };
+};
+
+export const setCityAction = id => {
+  return {
+    type: SET_CITY,
+    payload: id,
   };
 };

@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useDispatch } from 'react-redux';
-import { hideErrorAction } from '../../actions/actions';
+import { hideErrorAction } from '../actions/actions';
 
 export const Error = () => {
   const dispatch = useDispatch();

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addCityAsyncAction } from '../../actions/actions';
-import { Error } from '../../Components/Error/Error';
+import { addCityAsyncAction } from '../actions/actions';
+import { Error } from './Error';
 
 export const Search = () => {
   const [cityName, setCityName] = useState('');
